@@ -18,6 +18,18 @@ module.exports = function(environment) {
       // when it is created
     }
   };
+  ENV['ember-simple-auth'] = {
+    authorizer: 'authorizer:token',
+    authenticationRoute: 'login'
+  };
+
+  ENV['ember-simple-auth-token'] = {
+    serverTokenEndpoint: 'http://128.199.255.96/v1/shared/login',
+    identificationField: 'email',
+    passwordField: 'password',
+    tokenExpireName: 'exp',
+    refreshLeeway: 5000,
+  };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
