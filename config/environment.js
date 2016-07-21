@@ -12,6 +12,7 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
+    serverEndPoint: 'http://128.199.255.96/v1/shared/',
 
     APP: {
       // Here you can pass flags/options to your application instance
@@ -20,15 +21,16 @@ module.exports = function(environment) {
   };
   ENV['ember-simple-auth'] = {
     authorizer: 'authorizer:token',
-    authenticationRoute: 'login'
+    authenticationRoute: 'login',
+    crossOriginWhitelist:['*'],
   };
 
   ENV['ember-simple-auth-token'] = {
     serverTokenEndpoint: 'http://128.199.255.96/v1/shared/login',
     identificationField: 'email',
-    passwordField: 'password',
-    tokenExpireName: 'exp',
-    refreshLeeway: 5000,
+    refreshAccessTokens: true,
+    tokenPropertyName: "token",
+    tokenAttributeName:"token"
   };
 
   if (environment === 'development') {
